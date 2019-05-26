@@ -1,0 +1,19 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/add/index",
+    "pages/wallet/index",
+    "pages/my/index",
+    "pages/warn/index", 
+    "pages/biling/index",
+    "pages/scanResult/index"
+  ],
+    "window": {
+      "navigationBarBackgroundColor": "#b9dd08",
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "共享单车内测版",
+      "backgroundColor": "#eeeeee",
+      "backgroundTextStyle": "light",
+      "enablePullDownRefresh": false
+    }
+}
