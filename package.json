@@ -1,0 +1,22 @@
+{
+  "name": "wxapp_xiaofei",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaojingjing520/wx.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaojingjing520/wx/issues"
+  },
+  "homepage": "https://github.com/xiaojingjing520/wx#readme",
+  "dependencies": {
+    "wxapp__xf": "^1.0.0"
+  }
+}
