@@ -5,35 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-     userInfo:{
-       userUrl:'',
-       nickname:'未登录'
-     },
-     actionText:'登录',
-     btnType:'primary'
+    userInfo: {
+      userUrl: '',
+      nickname: '未登录'
+    },
+    actionText: '登录',
+    btnType: 'primary'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-     wx.getStorage({
-       key: 'userInfo',
-       success: (res)=> {
-         console.log(res)
-         this.setData({
-           userInfo:{
-             userUrl:res.data.userInfo.userUrl,
-             nickname:res.data.userInfo.nickname
-           },
-           actionText:res.data.actionText,
-           btnType:res.data.btnType
-         })
-       },
-     })
+    wx.getStorage({
+      key: 'userInfo',
+      success: (res) => {
+        console.log(res)
+        this.setData({
+          userInfo: {
+            userUrl: res.data.userInfo.userUrl,
+            nickname: res.data.userInfo.nickname
+          },
+          actionText: res.data.actionText,
+          btnType: res.data.btnType
+        })
+      },
+    })
   },
   Login: function () {
-    if(this.data.actionText == '登录'){
+    if (this.data.actionText == '登录') {
       wx.login({
         success: () => {
           wx.getUserInfo({
@@ -62,7 +62,7 @@ Page({
           })
         }
       })
-    }else{
+    } else {
       wx.removeStorageSync('userInfo');
       this.setData({
         userInfo: {
@@ -73,12 +73,12 @@ Page({
         btnType: 'primary'
       })
     }
-    
+
   },
-  movetoWallet:function(){
-     wx.navigateTo({
-       url: '../wallet/index',
-     })
+  movetoWallet: function () {
+    wx.navigateTo({
+      url: '../wallet/index',
+    })
   },
 
   /**

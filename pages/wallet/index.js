@@ -5,10 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    teicket:0,
-    money:0
+    teicket: 0,
+    money: 0
   },
-  moveToChange:function(){
+  moveToChange: function () {
     wx.navigateTo({
       url: '../add/index',
     })
@@ -25,7 +25,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
@@ -34,9 +34,9 @@ Page({
   onShow: function () {
     wx.getStorage({
       key: 'overage',
-      success: (res)=> {
+      success: (res) => {
         this.setData({
-          money:res.data
+          money: res.data
         })
       },
     })

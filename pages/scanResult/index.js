@@ -5,39 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-     Time:9
+    Time: 9
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     this.setData({
-      Password:options.getPassword
+      Password: options.getPassword
     })
-     let Time = 9;
-     let time = setInterval(() => {
-       this.setData({
-         Time:--Time
-       });
-       if(Time == 0){
-         clearInterval(time);
-         wx.redirectTo({
-           url: '../biling/index?number='+options.number,
-           success: ()=> {
+    let Time = 9;
+    let time = setInterval(() => {
+      this.setData({
+        Time: --Time
+      });
+      if (Time == 0) {
+        clearInterval(time);
+        wx.redirectTo({
+          url: '../biling/index?number=' + options.number,
+          success: () => {
 
-           }
-         })
-       }
-     },1000)
+          }
+        })
+      }
+    }, 1000)
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-      
+
 
   },
 

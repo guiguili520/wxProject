@@ -6,49 +6,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-     itemsValue:[{
-        value:"私锁私用",
-        checked:false,
-        color:"#b9dd08"
-       }, {
-         value: "车牌缺损",
-         checked: false,
-         color: "#b9dd08"
-       }, {
-         value: "轮胎坏了",
-         checked: false,
-         color: "#b9dd08"
-       }, {
-         value: "车锁坏了",
-         checked: false,
-         color: "#b9dd08"
-       }, {
-         value: "违规乱停",
-         checked: false,
-         color: "#b9dd08"
-       }, {
-         value: "密码不对",
-         checked: false,
-         color: "#b9dd08"
-       }, {
-         value: "刹车坏了",
-         checked: false,
-         color: "#b9dd08"
-       }, {
-         value: "其它故障",
-         checked: false,
-         color: "#b9dd08"
-       }, ],
-       picUrls:[],
-       checkboxValues:[],
-       btnColor:'#f2f2f2',
-       actionText:'拍摄/相册',
-       num:0,
-       desc:''     
-      
+    itemsValue: [{
+      value: "私锁私用",
+      checked: false,
+      color: "#b9dd08"
+    }, {
+      value: "车牌缺损",
+      checked: false,
+      color: "#b9dd08"
+    }, {
+      value: "轮胎坏了",
+      checked: false,
+      color: "#b9dd08"
+    }, {
+      value: "车锁坏了",
+      checked: false,
+      color: "#b9dd08"
+    }, {
+      value: "违规乱停",
+      checked: false,
+      color: "#b9dd08"
+    }, {
+      value: "密码不对",
+      checked: false,
+      color: "#b9dd08"
+    }, {
+      value: "刹车坏了",
+      checked: false,
+      color: "#b9dd08"
+    }, {
+      value: "其它故障",
+      checked: false,
+      color: "#b9dd08"
+    },],
+    picUrls: [],
+    checkboxValues: [],
+    btnColor: '#f2f2f2',
+    actionText: '拍摄/相册',
+    num: 0,
+    desc: ''
+
   },
-  changeCheckbox: function(e) {
-    console.log(e)
+  changeCheckbox: function (e) {
     var _value = e.detail.value;
     if (_value.length == 0) {
       this.setData({
@@ -62,23 +61,22 @@ Page({
       })
     }
   },
-  clickPhoto:function(){
-      wx.chooseImage({
-        success: (res)=> {
-          console.log(res)
-          var _picUrls = this.data.picUrls;
-          var _tfs = res.tempFilePaths;
-          for(let temp of _tfs){
-            _picUrls.push(temp)
-            this.setData({
-              picUrls:_picUrls,
-              actionText:'+'
-            })
-          }
-        },
-      })
+  clickPhoto: function () {
+    wx.chooseImage({
+      success: (res) => {
+        var _picUrls = this.data.picUrls;
+        var _tfs = res.tempFilePaths;
+        for (let temp of _tfs) {
+          _picUrls.push(temp)
+          this.setData({
+            picUrls: _picUrls,
+            actionText: '+'
+          })
+        }
+      },
+    })
   },
-  delPic:function(e){
+  delPic: function (e) {
     let index = e.target.dataset.index;
     let _picUrls = this.data.picUrls;
     _picUrls.splice(index, 1);
@@ -91,51 +89,48 @@ Page({
       })
     }
   },
-  changeNumber:function(e){
-    console.log(e)
+  changeNumber: function (e) {
     this.setData({
-        num:e.detail.value
+      num: e.detail.value
     })
   },
-  changeDesc:function(e){    
-    console.log(e)
+  changeDesc: function (e) {
     this.setData({
-        desc:e.detail.value
+      desc: e.detail.value
     })
   },
-  submit:function(){
-   if(this.data.picUrls.length > 0 && this.data.checkboxValues.length > 0){
+  submit: function () {
+    if (this.data.picUrls.length > 0 && this.data.checkboxValues.length > 0) {
       wx.request({
         url: 'https://easy-mock.com/mock/5ce6b76ceb09d13a91198834/example/getSubmit',
-        success:(res)=> {
+        success: (res) => {
 
         }
       })
-   }else{
+    } else {
       wx.showModal({
         title: '请填写完整的反馈信息',
         content: '谢谢合作',
-        confirmText:'去填写',
-        cancelText:'忍心离去',
-        success:(res)=>{
-          console.log(res)
-         if(res.confirm){
-             
-         }else{
-           wx.navigateBack({
-             delta:1
-           })
-         }
+        confirmText: '去填写',
+        cancelText: '忍心离去',
+        success: (res) => {
+          if (res.confirm) {
+
+          } else {
+            wx.navigateBack({
+              delta: 1
+            })
+          }
         }
       })
-   }
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
   },
 
   /**

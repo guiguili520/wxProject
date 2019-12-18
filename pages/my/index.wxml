@@ -1,12 +1,12 @@
-<!--pages/my/index.wxml-->
+<!-- pages/my/index.wxml -->
 <view class='container'>
     <view class='user-info'>
-       <block wx:if='{{userInfo.userUrl !== ""}}'>
-          <view class='img'>
-              <image src='{{userInfo.userUrl}}'></image>
-          </view>
-       </block>
-       <text class='user-name'>{{userInfo.nickname}}</text>
+        <block wx:if='{{userInfo.userUrl !== ""}}'>
+            <view class='img'>
+                <image src='{{userInfo.userUrl}}'></image>
+            </view>
+        </block>
+        <text class='user-name'>{{userInfo.nickname}}</text>
     </view>
     <block wx:if='{{userInfo.userUrl !== ""}}'>
         <view class='my-wallet' bindtap='movetoWallet'>
@@ -14,5 +14,7 @@
             <text>></text>
         </view>
     </block>
-    <button type='{{btnType}}' class='btn-login' bindgetuserinfo='Login' open-type='getUserInfo'>{{actionText}}</button>
+    <button type='{{btnType}}' class='btn-login' bindgetuserinfo='Login' open-type='getUserInfo'>
+        {{actionText}}
+    </button>
 </view>
